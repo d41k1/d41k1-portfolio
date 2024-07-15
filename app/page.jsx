@@ -122,12 +122,12 @@ const works = {
   info: [
     {
       icon: <TbExternalLink size="16px" />,
-      path: "https://d41k1-portfolio.vercel.app/",
+      path: "",
       description: "外部サイトに移動します。",
     },
     {
       icon: <RiGitRepositoryLine size="16px" />,
-      path: "https://github.com/d41k1/d41k1-portfolio",
+      path: "",
       description: "GitHubのリポジトリに移動します。",
     },
   ],
@@ -143,8 +143,8 @@ const page = () => {
               <CardHeader>
                 <CardTitle>
                   <div className="flex justify-content-start">
-                    <div class="aspect-square bg-accent w-2 h-6"></div>
-                    <div class="aspect-square opacity-0 bg-black w-3 h-6"></div>
+                    <div className="aspect-square bg-accent w-2 h-6"></div>
+                    <div className="aspect-square opacity-0 bg-black w-3 h-6"></div>
                     <div>Profile</div>
                   </div>
                 </CardTitle>
@@ -155,7 +155,7 @@ const page = () => {
                     <div className="w-full h-full grid justify-items-center">
                       <div className="flex items-center">
                         <Image
-                          src="/assets/icon.png"
+                          src="/icon.png"
                           height="240"
                           width="240"
                           alt="icon"
@@ -166,7 +166,7 @@ const page = () => {
                       <div className="font-bold text-3xl text-secondary">
                         d41k1<span className="text-accent">.</span>
                       </div>
-                      <div className="font-sans  text-base">
+                      <div className="font-sans text-base">
                         はじめまして。d41k1と申します。 <br />
                         情報工学を学ぶ大学生です。 <br />
                         新しいことにどんどん挑戦したいです。
@@ -175,24 +175,22 @@ const page = () => {
                         <div>所属</div>
                         <Table>
                           <TableBody className="font-sans font-normal text-base text-left">
-                            {profiles.map((profile, index) => {
-                              return (
-                                <TableRow key={index}>
-                                  <TableCell colSpan={3}>
-                                    <div className="flex justify-start gap-4">
-                                      <span>{profile.from}</span>
-                                      <span>-</span>
-                                      <span>{profile.until}</span>
-                                    </div>
-                                    <div className="hover:text-accent transition-all duration-100 mt-1 md:mt-0">
-                                      <Link href={profile.url}>
-                                        {profile.affiliation}
-                                      </Link>
-                                    </div>
-                                  </TableCell>
-                                </TableRow>
-                              );
-                            })}
+                            {profiles.map((profile, index) => (
+                              <TableRow key={index}>
+                                <TableCell colSpan={3}>
+                                  <div className="flex justify-start gap-4">
+                                    <span>{profile.from}</span>
+                                    <span>-</span>
+                                    <span>{profile.until}</span>
+                                  </div>
+                                  <div className="hover:text-accent transition-all duration-100 mt-1 md:mt-0">
+                                    <Link href={profile.url}>
+                                      {profile.affiliation}
+                                    </Link>
+                                  </div>
+                                </TableCell>
+                              </TableRow>
+                            ))}
                           </TableBody>
                         </Table>
                       </div>
@@ -208,8 +206,8 @@ const page = () => {
                 <CardTitle>
                   <div className="flex justify-content-start">
                     <div className="flex items-center">
-                      <div class="aspect-square bg-accent w-2 h-6"></div>
-                      <div class="aspect-square opacity-0 bg-black w-3 h-6"></div>
+                      <div className="aspect-square bg-accent w-2 h-6"></div>
+                      <div className="aspect-square opacity-0 bg-black w-3 h-6"></div>
                       <div>Skills</div>
                     </div>
                   </div>
@@ -222,27 +220,25 @@ const page = () => {
                     さまざまな経験を積んでもっと身につけていきたいです。
                   </div>
                   <ul className="grid gird-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[32px] gap-4">
-                    {skills.skillList.map((skill, index) => {
-                      return (
-                        <li key={index}>
-                          <TooltipProvider delayDuration={120}>
-                            <Tooltip>
-                              <TooltipTrigger className="w-full h-[168px] flex justify-center items-center group">
-                                <div className="group-hover:text-accent transition-all duration-300 text-secondary">
-                                  <div className="text-6xl flex justify-center">
-                                    {skill.icon}
-                                  </div>
-                                  <div className="my-4">{skill.name}</div>
+                    {skills.skillList.map((skill, index) => (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={120}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[168px] flex justify-center items-center group">
+                              <div className="group-hover:text-accent transition-all duration-300 text-secondary">
+                                <div className="text-6xl flex justify-center">
+                                  {skill.icon}
                                 </div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>{skill.explanation}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </li>
-                      );
-                    })}
+                                <div className="my-4">{skill.name}</div>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{skill.explanation}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </CardContent>
@@ -254,8 +250,8 @@ const page = () => {
                 <CardTitle>
                   <div className="flex justify-content-start">
                     <div className="flex items-center">
-                      <div class="aspect-square bg-accent w-2 h-6"></div>
-                      <div class="aspect-square opacity-0 bg-black w-3 h-6"></div>
+                      <div className="aspect-square bg-accent w-2 h-6"></div>
+                      <div className="aspect-square opacity-0 bg-black w-3 h-6"></div>
                       <div>Works</div>
                     </div>
                   </div>
@@ -281,28 +277,26 @@ const page = () => {
                         </div>
                         <div className="border-t mt-2" />
                         <div className="flex md:gap-12 gap-8 justify-start mt-2">
-                          {works.info.map((item, index) => {
-                            return (
-                              <TooltipProvider delayDuration={120}>
-                                <Tooltip>
-                                  <TooltipTrigger className="flex justify-center items-center group">
-                                    <div className="group-hover:text-accent transition-all duration-300 text-secondary">
-                                      <Link
-                                        key={index}
-                                        href={item.path}
-                                        className="w-6 h-6 border border-primary  rounded-full flex justify-center items-center  text-primary text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
-                                      >
-                                        {item.icon}
-                                      </Link>
-                                    </div>
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>{item.description}</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                            );
-                          })}
+                          {works.info.map((item, index) => (
+                            <TooltipProvider key={index} delayDuration={120}>
+                              <Tooltip>
+                                <TooltipTrigger className="flex justify-center items-center group">
+                                  <div className="group-hover:text-accent transition-all duration-300 text-secondary">
+                                    <Link
+                                      key={index}
+                                      href={item.path}
+                                      className="w-6 h-6 border border-primary rounded-full flex justify-center items-center text-primary text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
+                                    >
+                                      {item.icon}
+                                    </Link>
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{item.description}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          ))}
                         </div>
                       </div>
                       <div className="w-full h-full grid justify-items-start">
@@ -312,7 +306,7 @@ const page = () => {
                             height="240"
                             width="426"
                             alt="ポートフォリオサイト"
-                            class="rounded"
+                            className="rounded"
                           />
                         </div>
                       </div>
@@ -328,25 +322,23 @@ const page = () => {
                 <CardTitle>
                   <div className="flex justify-content-start">
                     <div className="flex items-center">
-                      <div class="aspect-square bg-accent w-2 h-6"></div>
-                      <div class="aspect-square opacity-0 bg-black w-3 h-8"></div>
+                      <div className="aspect-square bg-accent w-2 h-6"></div>
+                      <div className="aspect-square opacity-0 bg-black w-3 h-8"></div>
                       <div>Contact</div>
                     </div>
                   </div>
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex gap-16 justify-center md:gap-24 md:justify-center">
-                {socials.map((item, index) => {
-                  return (
-                    <Link
-                      key={index}
-                      href={item.path}
-                      className="w-12 h-12 border border-secondary  rounded-full flex justify-center items-center bg-secondary text-white text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
-                    >
-                      {item.icon}
-                    </Link>
-                  );
-                })}
+                {socials.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.path}
+                    className="w-12 h-12 border border-secondary rounded-full flex justify-center items-center bg-secondary text-white text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
+                  >
+                    {item.icon}
+                  </Link>
+                ))}
               </CardContent>
             </Card>
           </section>
