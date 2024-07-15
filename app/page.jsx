@@ -122,12 +122,12 @@ const works = {
   info: [
     {
       icon: <TbExternalLink size="16px" />,
-      path: "",
+      path: "https://d41k1-portfolio.vercel.app/",
       description: "外部サイトに移動します。",
     },
     {
       icon: <RiGitRepositoryLine size="16px" />,
-      path: "",
+      path: "https://github.com/d41k1/d41k1-portfolio",
       description: "GitHubのリポジトリに移動します。",
     },
   ],
