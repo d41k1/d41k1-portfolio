@@ -155,7 +155,7 @@ const page = () => {
                     <div className="w-full h-full grid justify-items-center">
                       <div className="flex items-center">
                         <Image
-                          src="/icon.png"
+                          src="/assets/icon.png"
                           height="240"
                           width="240"
                           alt="icon"
