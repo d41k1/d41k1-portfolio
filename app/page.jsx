@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { VscVscode } from "react-icons/vsc";
-import { SiCplusplus, SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import {
+  SiCplusplus,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiTypescript,
+} from "react-icons/si";
 import { TbExternalLink } from "react-icons/tb";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import {
@@ -40,6 +45,13 @@ import {
 
 const profiles = [
   {
+    from: "2025.04",
+    until: "現在",
+    affiliation:
+      "大阪公立大学大学院 情報学研究科 基幹情報学専攻 知能情報学分野",
+    url: "https://www.omu.ac.jp/i/",
+  },
+  {
     from: "2023.09",
     until: "現在",
     affiliation: "知能メディア処理研究グループ",
@@ -47,7 +59,7 @@ const profiles = [
   },
   {
     from: "2021.04",
-    until: "現在",
+    until: "2025.03",
     affiliation: "大阪府立大学 工学域 電気電子系学類 情報工学課程",
     url: "https://www.omu.ac.jp/eng/undergraduate/inf-sci/",
   },
@@ -69,6 +81,11 @@ const skills = {
       icon: <FaJs />,
       name: "JavaScript",
       explanation: " TypeScriptも勉強中です。",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "TypeScript",
+      explanation: "最近はTypeScriptを使っています。",
     },
     {
       icon: <SiTailwindcss />,
@@ -128,6 +145,18 @@ const works = {
     {
       icon: <RiGitRepositoryLine size="16px" />,
       path: "https://github.com/d41k1/d41k1-portfolio",
+      description: "GitHubのリポジトリに移動します。",
+    },
+  ],
+  notara: [
+    {
+      icon: <TbExternalLink size="16px" />,
+      path: "https://notara-dev.vercel.app/",
+      description: "外部サイトに移動します。",
+    },
+    {
+      icon: <RiGitRepositoryLine size="16px" />,
+      path: "https://github.com/d41k1/Notara",
       description: "GitHubのリポジトリに移動します。",
     },
   ],
@@ -303,6 +332,56 @@ const page = () => {
                         <div className="flex items-center md:items-start">
                           <Image
                             src="/assets/d41k1-portfolio.png"
+                            height="240"
+                            width="426"
+                            alt="ポートフォリオサイト"
+                            className="rounded"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start mt-12 md:mx-16">
+                    <div className="grid gird-cols-1 md:grid-cols-2 md:max-w-screen-md gap-4 md:gap-16 justify-items-start">
+                      <div className="grid grid-cols-1 gap-1 md;gap-4 content-center md:content-start">
+                        <div className="text-accent font-semibold text-lg">
+                          Notara
+                        </div>
+                        <div className="font-normal text-base">
+                          <div>
+                            シンプルで効率的なタスク管理アプリです。
+                            <br />
+                            ぜひ使ってみてください。
+                          </div>
+                        </div>
+                        <div className="border-t mt-2" />
+                        <div className="flex md:gap-12 gap-8 justify-start mt-2">
+                          {works.notara.map((item, index) => (
+                            <TooltipProvider key={index} delayDuration={120}>
+                              <Tooltip>
+                                <TooltipTrigger className="flex justify-center items-center group">
+                                  <div className="group-hover:text-accent transition-all duration-300 text-secondary">
+                                    <Link
+                                      key={index}
+                                      href={item.path}
+                                      className="w-6 h-6 border border-primary rounded-full flex justify-center items-center text-primary text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
+                                    >
+                                      {item.icon}
+                                    </Link>
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{item.description}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="w-full h-full grid justify-items-start">
+                        <div className="flex items-center md:items-start">
+                          <Image
+                            src="/assets/Notara.png"
                             height="240"
                             width="426"
                             alt="ポートフォリオサイト"
