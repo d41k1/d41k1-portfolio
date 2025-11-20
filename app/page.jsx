@@ -32,6 +32,7 @@ import {
   FaDocker,
   FaGithub,
   FaXTwitter,
+  FaGolang,
 } from "react-icons/fa6";
 import {
   Table,
@@ -44,6 +45,12 @@ import {
 } from "@/components/ui/table";
 
 const profiles = [
+  {
+    from: "2025.04",
+    until: "現在",
+    affiliation: "株式会社Affectify エンジニア アルバイト",
+    url: "https://affectify.jp/",
+  },
   {
     from: "2025.04",
     until: "現在",
@@ -86,6 +93,11 @@ const skills = {
       icon: <SiTypescript />,
       name: "TypeScript",
       explanation: "最近はTypeScriptを使っています。",
+    },
+    {
+      icon: <FaGolang />,
+      name: "Go",
+      explanation: "開発系のアルバイトでGoを使っています。",
     },
     {
       icon: <SiTailwindcss />,
@@ -157,6 +169,18 @@ const works = {
     {
       icon: <RiGitRepositoryLine size="16px" />,
       path: "https://github.com/d41k1/Notara",
+      description: "GitHubのリポジトリに移動します。",
+    },
+  ],
+  musicode: [
+    {
+      icon: <TbExternalLink size="16px" />,
+      path: "https://musicode.vercel.app/",
+      description: "外部サイトに移動します。",
+    },
+    {
+      icon: <RiGitRepositoryLine size="16px" />,
+      path: "https://github.com/d41k1/MusiCode",
       description: "GitHubのリポジトリに移動します。",
     },
   ],
@@ -384,7 +408,57 @@ const page = () => {
                             src="/assets/Notara.png"
                             height="240"
                             width="426"
-                            alt="ポートフォリオサイト"
+                            alt="Notara"
+                            className="rounded"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start mt-12 md:mx-16">
+                    <div className="grid gird-cols-1 md:grid-cols-2 md:max-w-screen-md gap-4 md:gap-16 justify-items-start">
+                      <div className="grid grid-cols-1 gap-1 md;gap-4 content-center md:content-start">
+                        <div className="text-accent font-semibold text-lg">
+                          MusiCode
+                        </div>
+                        <div className="font-normal text-base">
+                          <div>
+                            ABC表記で音楽を作成・共有できるアプリです。
+                            <br />
+                            作曲に興味がある方はぜひ使ってみてください。
+                          </div>
+                        </div>
+                        <div className="border-t mt-2" />
+                        <div className="flex md:gap-12 gap-8 justify-start mt-2">
+                          {works.musicode.map((item, index) => (
+                            <TooltipProvider key={index} delayDuration={120}>
+                              <Tooltip>
+                                <TooltipTrigger className="flex justify-center items-center group">
+                                  <div className="group-hover:text-accent transition-all duration-300 text-secondary">
+                                    <Link
+                                      key={index}
+                                      href={item.path}
+                                      className="w-6 h-6 border border-primary rounded-full flex justify-center items-center text-primary text-base hover:text-white hover:bg-accent hover:border-accent hover:transition-all duration-500"
+                                    >
+                                      {item.icon}
+                                    </Link>
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{item.description}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="w-full h-full grid justify-items-start">
+                        <div className="flex items-center md:items-start">
+                          <Image
+                            src="/assets/MusiCode.png"
+                            height="240"
+                            width="426"
+                            alt="MusiCode"
                             className="rounded"
                           />
                         </div>
